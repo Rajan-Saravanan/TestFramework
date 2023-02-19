@@ -1,0 +1,3 @@
+com\automationTest\tests\LoginTest.class
+com\automationTest\components\Navbar.class
+com\automationTest\config\TestConfig.class
