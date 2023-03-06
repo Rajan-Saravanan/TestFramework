@@ -9,15 +9,10 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class LoginTest{
+public class LoginTest extends TestConfig {
 
     WebDriver driver;
-    TestConfig config;
-    @BeforeTest
-    public void setup(){
-        config = new TestConfig();
-        driver = config.setup();
-    }
+
     @Test
     public void login(){
         System.out.println("Login Test");
@@ -27,8 +22,15 @@ public class LoginTest{
         System.out.println(options.toString());
     }
 
+    @Override
     @AfterTest
     public void tearDown(){
         driver.close();
+    }
+
+    @Override
+    @BeforeTest
+    public void setup() {
+        driver = intializeDriver();
     }
 }

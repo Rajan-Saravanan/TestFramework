@@ -1,11 +1,8 @@
 package com.automationTest.config;
 
-import com.automationTest.components.Navbar;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +11,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
-public class TestConfig {
+public abstract class TestConfig {
     public WebDriver driver;
 
     public static Properties prop;
@@ -29,7 +26,7 @@ public class TestConfig {
         }
     }
 
-    public WebDriver setup(){
+    public WebDriver intializeDriver(){
         WebDriverManager.chromedriver().setup();
         this.driver = new ChromeDriver();
 
@@ -45,5 +42,6 @@ public class TestConfig {
         return this.driver;
     }
 
-
+    public abstract void setup();
+    public abstract void tearDown();
 }
