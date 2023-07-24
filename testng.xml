@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="All Test Suite" parallel="methods" thread-count="2">
 <!--    <test verbose="2" preserve-order="true" name="D:/Projects/TestFramework/src/test/java/com/automationTest/tests">-->
 <!--        <classes>-->
 <!--            <class name="com.automationTest.tests.LoginTest">-->
@@ -10,10 +10,15 @@
 <!--            </class>-->
 <!--        </classes>-->
 <!--    </test>-->
+    <listeners>
+        <listener class-name="com.automationTest.config.ExtentReportManager"/>
+    </listeners>
     <test verbose="2" preserve-order="true" name="D:/Projects/TestFramework/src/test/java/com/automationTest/tests/Login">
         <classes>
             <class name="com.automationTest.tests.Login.TC_LF_001" />
-            <!--            <class name="com.automationTest.tests.Login.TC_LF_002">-->
+            <class name="com.automationTest.tests.Login.TC_LF_002" />
+            <class name="com.automationTest.tests.Login.TC_LF_003" />
+            <class name="com.automationTest.tests.Login.TC_LF_004" />
         </classes>
     </test>
 </suite>

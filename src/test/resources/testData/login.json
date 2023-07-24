@@ -1,0 +1,22 @@
+{
+  "socialLinkTitle": [
+    {
+      "linkedIn": "Sign In | LinkedIn",
+      "facebook": "OrangeHRM - World's Most Popular Opensource HRIS | Secaucus NJ | Facebook",
+      "twitter": "Log in to Twitter / Twitter",
+      "youtube": "OrangeHRM Inc - YouTube"
+    }
+  ],
+  "validLogin" : [
+    {
+      "userName" : "Admin",
+      "password" : "admin123"
+    }
+  ],
+  "invalidLogin" : [
+    {
+      "userName" : "invalidUser",
+      "password" : "invalidPassword"
+    }
+  ]
+}

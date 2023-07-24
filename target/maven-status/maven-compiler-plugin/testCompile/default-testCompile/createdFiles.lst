@@ -1,7 +1,0 @@
-com\automationTest\tests\Login\TC_LF_002.class
-com\automationTest\tests\Login\TC_LF_001.class
-com\automationTest\tests\LoginTest.class
-com\automationTest\components\Navbar.class
-com\automationTest\config\TestConfig.class
-com\automationTest\pageObjects\LoginPage.class
-com\automationTest\components\OpenCartHeader.class

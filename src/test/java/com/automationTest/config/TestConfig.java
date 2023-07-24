@@ -3,6 +3,9 @@ package com.automationTest.config;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,7 +29,7 @@ public abstract class TestConfig {
         }
     }
 
-    public WebDriver intializeDriver(){
+    public WebDriver initializeDriver(){
         WebDriverManager.chromedriver().setup();
         this.driver = new ChromeDriver();
 
@@ -35,13 +38,25 @@ public abstract class TestConfig {
         //Maximize windows
         this.driver.manage().window().maximize();
         //set up implicit wait
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(prop.getProperty("IMPLICIT_WAIT"))));
+        setImplicitWait();
         // Navigate to app
         this.driver.get(prop.getProperty("APP_URL"));
+        //Add current WebDriver to Extent Report
+        ExtentReportManager.setWebDriver(driver);
 
         return this.driver;
     }
 
+    public void setImplicitWait(){
+        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(prop.getProperty("IMPLICIT_WAIT"))));
+    }
+
+    public void disableImplicitWait(){
+        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+    }
+
+    @BeforeMethod
     public abstract void setup();
+    @AfterMethod
     public abstract void tearDown();
 }
