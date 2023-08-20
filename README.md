@@ -1,6 +1,6 @@
 # **Selenium TestNG Automation Framework**
 
-Through this Automation framework created automated tests can be run in parallel using TestNG and test data is provided in JSON file.
+This Automation framework allows automated tests to be executed in parallel using TestNG, with test data provided in a JSON file.
 
 To get started sample code are available inside the framework for ORANGE HRM website (https://opensource-demo.orangehrmlive.com/web/index.php/auth/login)
 
