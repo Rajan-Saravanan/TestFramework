@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
 
-public abstract class Utility extends TestConfig {
+public class Utility extends TestConfig {
 
     public boolean isElementDisplayed(WebElement element) {
         try {

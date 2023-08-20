@@ -11,7 +11,6 @@ import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 public class TC_LF_002 extends Utility {
-    WebDriver driver;
 
     @Test(dataProvider = "testData")
     public void verify_social_links_are_working_in_login_screen(JsonObject testData){
@@ -48,16 +47,5 @@ public class TC_LF_002 extends Utility {
         driver.close();
         driver.switchTo().window(parenWindow);
         return title;
-    }
-    @Override
-    @BeforeMethod
-    public void setup() {
-        this.driver = initializeDriver();
-    }
-
-    @Override
-    @AfterMethod
-    public void tearDown() {
-        this.driver.quit();
     }
 }

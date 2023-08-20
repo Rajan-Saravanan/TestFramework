@@ -9,7 +9,6 @@ import org.testng.asserts.SoftAssert;
 
 public class TC_LF_001 extends Utility {
 
-    WebDriver driver;
     @Test()
     public void verify_UI_elements_in_Login_screen(){
 
@@ -28,17 +27,5 @@ public class TC_LF_001 extends Utility {
         softAssert.assertTrue(login.twitter.isDisplayed());
         softAssert.assertTrue(login.youtube.isDisplayed());
 
-    }
-
-    @Override
-    @BeforeMethod
-    public void setup() {
-        driver = initializeDriver();
-    }
-
-    @Override
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
     }
 }

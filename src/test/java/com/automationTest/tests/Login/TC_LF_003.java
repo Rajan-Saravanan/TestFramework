@@ -12,7 +12,6 @@ import org.testng.annotations.*;
 
 public class TC_LF_003 extends Utility {
 
-
     @DataProvider(name = "loginData")
     public Object[][] getTestData() {
         return JsonDataProviderUtil.getTestData("login.json", "validLogin");
@@ -37,17 +36,4 @@ public class TC_LF_003 extends Utility {
 
     }
 
-    WebDriver driver;
-
-    @Override
-    @BeforeMethod
-    public void setup() {
-        this.driver = initializeDriver();
-    }
-
-    @Override
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
-    }
 }

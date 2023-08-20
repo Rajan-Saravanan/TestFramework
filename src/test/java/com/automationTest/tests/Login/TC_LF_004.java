@@ -13,18 +13,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class TC_LF_004 extends TestConfig {
-    WebDriver driver;
-    @Override
-    @BeforeMethod
-    public void setup() {
-        driver = initializeDriver();
-    }
-
-    @Override
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
-    }
 
     @DataProvider(name = "invalidLogin")
     public Object[][] getTestData(){

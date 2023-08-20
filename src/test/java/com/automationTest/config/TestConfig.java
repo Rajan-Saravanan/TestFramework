@@ -1,11 +1,9 @@
 package com.automationTest.config;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +12,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
-public abstract class TestConfig {
+public class TestConfig {
     public WebDriver driver;
 
     public static Properties prop;
@@ -29,8 +27,8 @@ public abstract class TestConfig {
         }
     }
 
-    public WebDriver initializeDriver(){
-        WebDriverManager.chromedriver().setup();
+    @BeforeMethod
+    public void initializeDriver(){
         this.driver = new ChromeDriver();
 
         //Clear browser cookies
@@ -43,8 +41,6 @@ public abstract class TestConfig {
         this.driver.get(prop.getProperty("APP_URL"));
         //Add current WebDriver to Extent Report
         ExtentReportManager.setWebDriver(driver);
-
-        return this.driver;
     }
 
     public void setImplicitWait(){
@@ -55,8 +51,8 @@ public abstract class TestConfig {
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
-    @BeforeMethod
-    public abstract void setup();
     @AfterMethod
-    public abstract void tearDown();
+    public void tearDown() {
+        driver.quit();
+    }
 }
